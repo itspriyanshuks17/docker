@@ -14,6 +14,10 @@ Docker is an **open-source platform** that allows you to **develop, ship, and ru
 * 🛠 **Consistency** – Works the same in dev, test, and production.
 * 🔄 **Scalability** – Easy to scale using orchestration tools like Docker Compose or Kubernetes.
 
+
+<p align="center">
+  <img src="images/Docker_Workflow.png" alt="Alt text">
+</p>
 ---
 
 ## 🔹 Basic Docker Commands
@@ -423,4 +427,69 @@ docker run -d --name my-app --network backend my-node-app
 * **custom network** = best for multi-container apps.
 
 ---
+
+## **Steps to Push Docker Image to Docker Hub**
+
+1. **Login to Docker Hub**
+
+   ```bash
+   docker login
+   ```
+
+   → Username & password enter karo. (Agar aapke paas Docker Hub account nahi hai to [hub.docker.com](https://hub.docker.com/) pe bana lo).
+
+---
+
+2. **Build Docker Image**
+   Apna Dockerfile jahan hai us directory me command run karo:
+
+   ```bash
+   docker build -t username/repository_name:tag .
+   ```
+
+   Example:
+
+   ```bash
+   docker build -t priyanshuksharma/myapp:1.0 .
+   ```
+
+---
+
+3. **Check Local Images**
+
+   ```bash
+   docker images
+   ```
+
+   Ye confirm karega ki image ban gayi hai aur sahi tag laga hua hai.
+
+---
+
+4. **Push Image to Docker Hub**
+
+   ```bash
+   docker push username/repository_name:tag
+   ```
+
+   Example:
+
+   ```bash
+   docker push priyanshuksharma/myapp:1.0
+   ```
+
+---
+
+5. **Verify on Docker Hub**
+   Apne account me login karke repository check karo. Wahan image upload ho chuki hogi.
+
+---
+
+⚡ **Quick Notes**:
+
+* Agar tag mention nahi karte ho to default `latest` hota hai.
+* Private repo me push karne ke liye Docker Hub pe repo ko private banana hoga.
+* Similarly, aap **private registry** ya **AWS ECR, GCP Artifact Registry, Azure ACR** me bhi push kar sakte ho, bas login aur repo URL alag hoga.
+
+---
+
 
